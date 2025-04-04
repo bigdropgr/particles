@@ -2,8 +2,8 @@
 Contributors: TheBasementAgency
 Tags: wpbakery, page builder
 Requires at least: 5.6.8
-Stable tag: 1.3.0
-Tested up to: 6.0.3
+Stable tag: 1.4.0
+Tested up to: 6.2.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
@@ -77,6 +77,9 @@ Sites must be built on PHP 7.4 or greater, but The Basement.Agency Particles Bac
 = 1.3.0 =
 * Added new Rainy Day effect
 * Fixed performance issues on low-end GPUs when trying to load duplicate entities
+
+= 1.4.0 =
+* Added new Falling Stars effect
 
 == Upgrade Notice ==
 Make sure to keep this plugin up to date, to avoid any issue with the compatibility.

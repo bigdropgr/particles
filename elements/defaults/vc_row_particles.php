@@ -18,6 +18,7 @@ if(function_exists('vc_add_param')){
 				esc_html__("Three Js Particles Wave","tba-particles") => "waves",
 				esc_html__("Ambient Background","tba-particles") => "ambient",
 				esc_html__("Snow Particles Effect","tba-particles") => "snow",
+				esc_html__("Falling Stars Effect","tba-particles") => "falling-star",
 			),
 			"description" => esc_html__("Select the kind of background would you like to set for this row.","tba-particles"),
 			"group" => esc_html__("Particles"),

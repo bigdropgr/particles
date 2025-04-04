@@ -11,8 +11,8 @@
  * Plugin Name:       Particles Backgrounds Addon for WPBakery Page Builder
  * Plugin URI:        https://thebasement.agency/portfolio_page/particles-backgrounds-addon-for-wpbakery-page-builder/
  * Description:       This powerful WordPress plugin adds pro-level particle backgrounds to the famous WPBakery Page Builder, allowing both novice and mid-level designers to wow their clients.
- * Version:           1.3.0
- * Tested up to:      6.0.3
+ * Version:           1.4.0
+ * Tested up to:      6.2.0
  * Requires at least: 5.6.8
  * Requires PHP:      7.4
  * Author:            TheBasementAgency
@@ -142,6 +142,29 @@ class tba_background_particles {
                 $pid = substr(str_shuffle(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',5)),0,5);
                 
                 $html .= '<div class="particle_pjs_ref" data-id="'. $pid .'" data-shape="circle" data-img="" data-pcolor="#ffffff" data-stroke="0" data-scolor="#000000" data-sides="0" data-count="400" data-size="10" data-srandom="" data-sanimate="yes" data-sanispeed="40" data-smin="0.1" data-opacity="" data-orandom="" data-oanimate="yes" data-oanispeed="1" data-omin="0.1" data-link="" data-ldistance="" data-lcolor="#ffffff" data-lopacity="0.4" data-lwidth="1" data-move="yes" data-direction="bottom" data-mrandom="" data-mstraight="" data-mspeed="6" data-omode="out" data-hover="" data-onhover="" data-click="yes" data-onclick="repulse"></div>';
+
+                // Set html inline css of z-index
+                wp_register_script( 'tba-js-footer', '', array("jquery"), '', true );
+                wp_add_inline_script( 'tba-js-footer',
+                    "setTimeout(function () {
+                        jQuery('#$pid').css('zIndex', $snow_zindex);
+                     }, 1200);
+                ");
+
+                wp_register_script( 'tba-js-footer-snow', '', array("jquery"), '', true );
+                wp_add_inline_script( 'tba-js-footer-snow',
+                    "jQuery(document).ready(function() {
+                        window.dispatchEvent(new Event('resize'));
+                    });
+                ");
+
+            } else if($pb_type == 'falling-star') {
+                
+                wp_enqueue_script('pb-row-snow',plugins_url('/particles-lib/particles.js/',__FILE__).'particles.js', array( 'jquery' ));
+                
+                $pid = substr(str_shuffle(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',5)),0,5);
+                
+                $html .= '<div class="particle_pjs_ref" data-id="'. $pid .'" data-shape="star" data-img="" data-pcolor="#eeee22" data-stroke="0" data-scolor="#000000" data-sides="" data-count="400" data-size="10" data-srandom="" data-sanimate="yes" data-sanispeed="40" data-smin="0.1" data-opacity="" data-orandom="" data-oanimate="yes" data-oanispeed="1" data-omin="0.1" data-link="" data-ldistance="" data-lcolor="#ffffff" data-lopacity="0.4" data-lwidth="1" data-move="yes" data-direction="bottom" data-mrandom="" data-mstraight="" data-mspeed="6" data-omode="out" data-hover="" data-onhover="" data-click="yes" data-onclick="repulse"></div>';
 
                 // Set html inline css of z-index
                 wp_register_script( 'tba-js-footer', '', array("jquery"), '', true );
